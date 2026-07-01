@@ -39,6 +39,7 @@ const INITIAL_IDEAS = [
     versao: '1.3',
     sprint: 'Sprint 02',
     responsavel: 'Fabio',
+    prazo: '2026-07-02',
     origem: 'ChatGPT',
     impacto: 'Estrategico',
     esforco: '3 dias',
@@ -71,6 +72,7 @@ const INITIAL_IDEAS = [
     versao: '1.0',
     sprint: 'Sprint 01',
     responsavel: 'Produto',
+    prazo: '2026-07-05',
     origem: 'Fabio',
     impacto: 'Estrategico',
     esforco: '1 semana',
@@ -104,6 +106,7 @@ const INITIAL_IDEAS = [
     versao: 'Hub 1.0',
     sprint: 'Sprint 01',
     responsavel: 'Hub',
+    prazo: '2026-07-02',
     origem: 'Fabio',
     impacto: 'Estrategico',
     esforco: '3 dias',
@@ -137,6 +140,7 @@ const EMPTY_FORM = {
   versao: '',
   sprint: '',
   responsavel: 'Fabio',
+  prazo: '',
   origem: 'Fabio',
   impacto: 'Alto',
   esforco: '1 dia',
@@ -361,7 +365,7 @@ export default function IdeasLabModule() {
           <h2>Central de Produto</h2>
           <p>Departamento interno de desenvolvimento: da conversa inicial ate prompt Codex, desenvolvimento, testes, publicacao, release e conclusao.</p>
         </div>
-        <button className="primary-button" type="button" onClick={() => { setForm({ ...EMPTY_FORM, criado_em: new Date().toISOString().slice(0, 10) }); setModalOpen(true); }}><Plus size={18} /> Nova Ideia</button>
+        <button className="primary-button" type="button" onClick={() => { setForm({ ...EMPTY_FORM, criado_em: new Date().toISOString().slice(0, 10) }); setModalOpen(true); }}><Plus size={18} /> + Nova Ideia</button>
       </div>
 
       <div className="ideas-kpi-grid">
@@ -401,6 +405,7 @@ export default function IdeasLabModule() {
               <span><b>Status</b><em className={badgeClass('status', idea.status)}>{idea.status}</em></span>
               <span><b>Versao</b>{idea.versao || '-'}</span>
               <span><b>Sprint</b>{idea.sprint || '-'}</span>
+              <span><b>Prazo</b>{idea.prazo || '-'}</span>
               <span><b>Impacto</b>{idea.impacto}</span>
               <span><b>Esforco</b>{idea.esforco}</span>
               <span><b>Valor Cliente</b>{idea.valorCliente}</span>
@@ -443,6 +448,7 @@ export default function IdeasLabModule() {
               <Field label="Versao prevista"><input value={form.versao} onChange={(event) => updateForm('versao', event.target.value)} /></Field>
               <Field label="Sprint"><input value={form.sprint} onChange={(event) => updateForm('sprint', event.target.value)} /></Field>
               <SelectField label="Responsavel" value={form.responsavel} options={RESPONSIBLES} onChange={(value) => updateForm('responsavel', value)} />
+              <Field label="Prazo"><input type="date" value={form.prazo} onChange={(event) => updateForm('prazo', event.target.value)} /></Field>
               <SelectField label="Origem" value={form.origem} options={ORIGINS} onChange={(value) => updateForm('origem', value)} />
               <Field label="Data" required><input type="date" value={form.criado_em} onChange={(event) => updateForm('criado_em', event.target.value)} required /></Field>
               <Field label="Dependencias"><input value={form.dependencias} onChange={(event) => updateForm('dependencias', event.target.value)} placeholder="Ex.: IDEIA-0001, APP-002" /></Field>
