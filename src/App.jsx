@@ -814,7 +814,7 @@ export default function App() {
     .filter(([id]) => id !== 'companies' || canAdministerPlatform)
     .filter(([id]) => id !== 'configuration' || canAdministerPlatform)
     .filter(([id]) => id !== 'licenses' || canAdministerPlatform)
-    .filter(([, , , modulo]) => moduloEstaAtivo(configuracaoModular, modulo, currentRole));
+    .filter(([, , , modulo]) => !modulo || moduloEstaAtivo(configuracaoModular, modulo, currentRole));
   if (isSuperAdmin) navItems.splice(1, 0, ['superadmin', 'Super Admin', Building2, null]);
   navItems.push(['help', 'Ajuda', HelpCircle, null]);
   function navigateTo(view, anchor = '') {
