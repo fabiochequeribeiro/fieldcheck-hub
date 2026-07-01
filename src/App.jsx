@@ -17,6 +17,7 @@ import {
   Handshake,
   LayoutDashboard,
   LogOut,
+  FlaskConical,
   Megaphone,
   Menu,
   Network,
@@ -55,6 +56,7 @@ import ReportsModule from './modules/reports/ReportsModule';
 import NotificationsModule from './modules/notifications/NotificationsModule';
 import CeoDashboardModule from './modules/ceo/CeoDashboardModule';
 import IdeasLabModule from './modules/ideas/IdeasLabModule';
+import PilotCompaniesModule from './modules/pilots/PilotCompaniesModule';
 import { normalizeStatus } from './shared/status';
 import { generateChecklistModelSuggestions } from './services/aiChecklistService';
 import { applyFieldCheckHubTheme } from './theme/fieldCheckHubTheme';
@@ -90,6 +92,7 @@ const VIEW_ROUTES = {
   models: 'modelos',
   technicians: 'equipe',
   companies: 'empresas',
+  pilots: 'empresas-piloto',
   agenda: 'agenda-inteligente',
   roadmap: 'roadmap',
   ideasLab: 'central-de-produto',
@@ -787,6 +790,7 @@ export default function App() {
     ['models', rotuloModulo(configuracaoModular, MODULOS.CHECKLISTS) || 'Modelos', ClipboardCheck, MODULOS.CHECKLISTS],
     ['technicians', rotuloModulo(configuracaoModular, MODULOS.EQUIPE) || 'Equipe', Users, MODULOS.EQUIPE],
     ['companies', 'Empresas', Building2, null],
+    ['pilots', 'Empresas Piloto', FlaskConical, null],
     ['agenda', 'Agenda Inteligente', CalendarDays, null],
     ['roadmap', 'Roadmap', ChartNoAxesCombined, null],
     ['ideasLab', 'Central de Produto', Lightbulb, null],
@@ -811,6 +815,7 @@ export default function App() {
   const navItems = baseNavItems
     .filter(([id]) => currentRole !== 'supervisor' || supervisorViews.has(id))
     .filter(([id]) => id !== 'ideasLab' || isSuperAdmin)
+    .filter(([id]) => id !== 'pilots' || isSuperAdmin)
     .filter(([id]) => id !== 'companies' || canAdministerPlatform)
     .filter(([id]) => id !== 'configuration' || canAdministerPlatform)
     .filter(([id]) => id !== 'licenses' || canAdministerPlatform)
@@ -965,6 +970,10 @@ export default function App() {
 
         {activeView === 'companies' ? (
           <CompaniesModule companies={companies} technicians={technicians} orders={orders} />
+        ) : null}
+
+        {activeView === 'pilots' && isSuperAdmin ? (
+          <PilotCompaniesModule />
         ) : null}
 
         {activeView === 'licenses' ? (

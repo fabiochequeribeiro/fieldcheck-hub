@@ -1369,6 +1369,195 @@ td small { display: block; color: #667085; margin-top: 4px; }
 .product-card footer {
   align-items: flex-start;
 }
+
+.pilot-page { display: grid; gap: 18px; }
+.pilot-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+.pilot-list-panel {
+  background: #fff;
+  border: 1px solid #e3e8ef;
+  border-radius: 16px;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+  position: sticky;
+  top: 18px;
+}
+.pilot-search {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #d8dee7;
+  border-radius: 10px;
+  padding: 0 11px;
+  color: #667085;
+  background: #f8fafc;
+}
+.pilot-search input { border: 0; background: transparent; box-shadow: none; padding: 0; }
+.pilot-list { display: grid; gap: 8px; }
+.pilot-list button {
+  border: 1px solid #e3e8ef;
+  background: #fff;
+  color: #172033;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+  display: grid;
+  gap: 5px;
+}
+.pilot-list button:hover,
+.pilot-list button.active {
+  border-color: #1f66b2;
+  box-shadow: 0 0 0 3px rgba(31, 102, 178, .08);
+}
+.pilot-list strong { font-size: 14px; }
+.pilot-list span,
+.pilot-list small { color: #667085; font-size: 12px; line-height: 1.35; }
+.pilot-detail { display: grid; gap: 16px; }
+.pilot-hero {
+  background: linear-gradient(135deg, #102f52, #0c5f4a);
+  border-radius: 18px;
+  padding: 24px;
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.pilot-hero .eyebrow,
+.pilot-hero h3,
+.pilot-hero p { color: #fff; }
+.pilot-hero h3 { margin: 6px 0 8px; font-size: 32px; }
+.pilot-hero p { margin: 0; max-width: 760px; color: rgba(255,255,255,.82); line-height: 1.5; }
+.pilot-score {
+  min-width: 118px;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+  background: rgba(255,255,255,.10);
+}
+.pilot-score strong { display: block; font-size: 28px; }
+.pilot-score span { color: rgba(255,255,255,.76); font-size: 12px; font-weight: 850; }
+.pilot-info-grid,
+.pilot-module-grid,
+.pilot-request-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.pilot-info-grid article,
+.pilot-module-card {
+  background: #fff;
+  border: 1px solid #e3e8ef;
+  border-radius: 14px;
+  padding: 14px;
+}
+.pilot-info-grid span {
+  display: block;
+  color: #667085;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.pilot-info-grid strong { color: #172033; font-size: 13px; line-height: 1.35; }
+.pilot-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pilot-module-card {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.pilot-module-card svg {
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #eaf3ff;
+  color: #1f66b2;
+}
+.pilot-module-card strong,
+.pilot-module-card span { display: block; }
+.pilot-module-card strong { color: #172033; }
+.pilot-module-card span { color: #667085; font-size: 12px; margin-top: 3px; }
+.pilot-module-card em {
+  font-style: normal;
+  border-radius: 999px;
+  padding: 5px 8px;
+  background: #e7f7ee;
+  color: #087f3a;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.pilot-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.pilot-check-list,
+.pilot-question-list {
+  display: grid;
+  gap: 9px;
+}
+.pilot-check-list div {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+.pilot-check-list svg { color: #087f3a; flex: 0 0 auto; margin-top: 1px; }
+.pilot-question-list div {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid #e3e8ef;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+.pilot-question-list b {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #123c69;
+  color: #fff;
+  font-size: 12px;
+}
+.pilot-question-list span { color: #344054; font-size: 13px; line-height: 1.4; }
+.pilot-request-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 12px; }
+.pilot-request-grid span {
+  border: 1px solid #dce8f4;
+  background: #f8fbff;
+  color: #123c69;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 850;
+}
+.pilot-notes { margin: 0; color: #667085; line-height: 1.55; }
+.pilot-modal { width: min(780px, calc(100vw - 48px)); }
+.pilot-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 20px;
+}
+.pilot-field { display: grid; gap: 6px; color: #344054; font-size: 12px; font-weight: 850; }
+.pilot-field span { color: #667085; text-transform: uppercase; font-size: 10px; letter-spacing: .02em; }
+.pilot-field textarea { min-height: 90px; resize: vertical; }
 @media (max-width: 1180px) {
   .ideas-kpi-grid,
   .ideas-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1378,6 +1567,10 @@ td small { display: block; color: #667085; margin-top: 4px; }
   .product-idea-modal .lab-form-grid {
     grid-template-columns: repeat(2, minmax(220px, 1fr));
   }
+  .pilot-layout,
+  .pilot-two-columns { grid-template-columns: 1fr; }
+  .pilot-list-panel { position: static; }
+  .pilot-info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 780px) {
   .ideas-lab-hero { flex-direction: column; }
@@ -1405,4 +1598,11 @@ td small { display: block; color: #667085; margin-top: 4px; }
   .product-idea-modal .form-actions button {
     width: 100%;
   }
+  .pilot-hero { flex-direction: column; }
+  .pilot-module-grid,
+  .pilot-request-grid,
+  .pilot-info-grid,
+  .pilot-form-grid { grid-template-columns: 1fr; }
+  .pilot-module-card { grid-template-columns: 34px minmax(0, 1fr); }
+  .pilot-module-card em { grid-column: 1 / -1; width: fit-content; }
 }
