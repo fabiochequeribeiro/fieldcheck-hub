@@ -433,8 +433,8 @@ export default function IdeasLabModule() {
 
       {modalOpen ? (
         <div className="modal-backdrop" role="presentation" onMouseDown={() => setModalOpen(false)}>
-          <section className="modal modal-wide" onMouseDown={(event) => event.stopPropagation()}>
-            <header className="modal-header"><h2>Nova Ideia</h2><button className="icon-button" type="button" onClick={() => setModalOpen(false)}>x</button></header>
+          <section className="modal modal-wide product-idea-modal" onMouseDown={(event) => event.stopPropagation()}>
+            <header className="modal-header"><h2>Nova Ideia</h2><button className="icon-button" type="button" onClick={() => setModalOpen(false)} title="Fechar">x</button></header>
             <form className="lab-form-grid" onSubmit={createIdea}>
               <div className="lab-generated-code"><span>Identificador permanente</span><strong>{nextIdeaCode(ideas)}</strong></div>
               <Field label="Titulo" required><input value={form.titulo} onChange={(event) => updateForm('titulo', event.target.value)} required /></Field>
