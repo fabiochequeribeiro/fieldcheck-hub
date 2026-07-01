@@ -51,6 +51,7 @@ import CommandCenterModule from './modules/command/CommandCenterModule';
 import CompaniesModule from './modules/companies/CompaniesModule';
 import LicensesModule from './modules/licenses/LicensesModule';
 import ClientsModule from './modules/clients/ClientsModule';
+import CommercialModule from './modules/commercial/CommercialModule';
 import EquipmentModule from './modules/equipment/EquipmentModule';
 import ReportsModule from './modules/reports/ReportsModule';
 import NotificationsModule from './modules/notifications/NotificationsModule';
@@ -99,6 +100,7 @@ const VIEW_ROUTES = {
   ai: 'ia-fieldcheck',
   configuration: 'configuracoes',
   command: 'command-center',
+  commercial: 'comercial',
   clients: 'clientes',
   equipment: 'equipamentos',
   reports: 'relatorios',
@@ -782,7 +784,7 @@ export default function App() {
     );
   }
 
-  const supervisorViews = new Set(['ceo', 'dashboard', 'orders', 'models', 'technicians', 'companies', 'agenda', 'roadmap', 'ai', 'configuration', 'command', 'clients', 'equipment', 'reports', 'notifications', 'approvals', 'audit', 'help']);
+  const supervisorViews = new Set(['ceo', 'dashboard', 'orders', 'models', 'technicians', 'companies', 'agenda', 'roadmap', 'ai', 'configuration', 'command', 'commercial', 'clients', 'equipment', 'reports', 'notifications', 'approvals', 'audit', 'help']);
   const baseNavItems = [
     ['ceo', 'Dashboard CEO', Compass, null],
     ['dashboard', rotuloModulo(configuracaoModular, MODULOS.DASHBOARD) || 'Visao Geral', LayoutDashboard, MODULOS.DASHBOARD],
@@ -794,6 +796,7 @@ export default function App() {
     ['agenda', 'Agenda Inteligente', CalendarDays, null],
     ['roadmap', 'Roadmap', ChartNoAxesCombined, null],
     ['ideasLab', 'Central de Produto', Lightbulb, null],
+    ['commercial', rotuloModulo(configuracaoModular, MODULOS.COMERCIAL) || 'Comercial', Handshake, MODULOS.COMERCIAL],
     ['ai', 'IA FieldCheck', Bot, null],
     ['configuration', 'Configuracoes', Settings2, null],
     ['licenses', 'Licencas', ShieldCheck, null],
@@ -806,7 +809,6 @@ export default function App() {
     ['audit', rotuloModulo(configuracaoModular, MODULOS.AUDITORIA) || 'Auditoria', FileClock, MODULOS.AUDITORIA],
   ];
   const futureNavItems = [
-    ['commercial', 'Comercial', Handshake],
     ['finance', 'Financeiro', CircleDollarSign],
     ['marketing', 'Marketing', Megaphone],
     ['crm', 'CRM', Users],
@@ -930,6 +932,10 @@ export default function App() {
 
         {activeView === 'clients' ? (
           <ClientsModule orders={orders} visits={visits} occurrences={occurrences} />
+        ) : null}
+
+        {activeView === 'commercial' ? (
+          <CommercialModule orders={orders} clients={companies} />
         ) : null}
 
         {activeView === 'equipment' ? (

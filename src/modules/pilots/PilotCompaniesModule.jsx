@@ -17,12 +17,12 @@ import {
 import { HubPanel, HubStatCard } from '../../components/hub/HubComponents';
 
 const MODULE_CATALOG = {
-  comercial: { label: 'Comercial', icon: BriefcaseBusiness, priority: 'Maxima', status: 'MVP inicial' },
+  comercial: { label: 'Comercial', icon: BriefcaseBusiness, priority: 'Maxima', status: 'Ativo no Hub e app' },
   entrega: { label: 'Entrega Tecnica', icon: PackageCheck, priority: 'Muito alta', status: 'Pronto para piloto' },
   assistencia: { label: 'Assistencia Tecnica', icon: Wrench, priority: 'Muito alta', status: 'Base pronta em OS' },
-  preventiva: { label: 'Manutencao Preventiva', icon: CalendarClock, priority: 'Muito alta', status: 'Configurar plano' },
+  preventiva: { label: 'Manutencao Preventiva', icon: CalendarClock, priority: 'Muito alta', status: 'Tela dedicada no app' },
   inspecoes: { label: 'Inspecoes Tecnicas', icon: CheckCircle2, priority: 'Alta', status: 'Checklist + evidencias' },
-  equipamentos: { label: 'Controle de Equipamentos', icon: Settings, priority: 'Alta', status: 'Historico por maquina' },
+  equipamentos: { label: 'Controle de Equipamentos', icon: Settings, priority: 'Alta', status: 'Historico completo no app' },
   ia: { label: 'Relatorio Inteligente IA', icon: Bot, priority: 'Diferencial', status: 'Resumo de visita' },
 };
 
