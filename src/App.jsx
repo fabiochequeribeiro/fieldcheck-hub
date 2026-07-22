@@ -21,6 +21,7 @@ import {
   Megaphone,
   Menu,
   Network,
+  PanelsTopLeft,
   RefreshCw,
   ShieldCheck,
   Settings2,
@@ -58,6 +59,7 @@ import NotificationsModule from './modules/notifications/NotificationsModule';
 import CeoDashboardModule from './modules/ceo/CeoDashboardModule';
 import IdeasLabModule from './modules/ideas/IdeasLabModule';
 import PilotCompaniesModule from './modules/pilots/PilotCompaniesModule';
+import PlatformCenterModule from './modules/platform/PlatformCenterModule';
 import { normalizeStatus } from './shared/status';
 import { generateChecklistModelSuggestions } from './services/aiChecklistService';
 import { applyFieldCheckHubTheme } from './theme/fieldCheckHubTheme';
@@ -110,6 +112,7 @@ const VIEW_ROUTES = {
   help: 'ajuda',
   superadmin: 'superadmin',
   licenses: 'licencas',
+  platform: 'central-fieldcheck',
 };
 
 const ROUTE_VIEWS = Object.fromEntries(Object.entries(VIEW_ROUTES).map(([view, route]) => [route, view]));
@@ -784,9 +787,10 @@ export default function App() {
     );
   }
 
-  const supervisorViews = new Set(['ceo', 'dashboard', 'orders', 'models', 'technicians', 'companies', 'agenda', 'roadmap', 'ai', 'configuration', 'command', 'commercial', 'clients', 'equipment', 'reports', 'notifications', 'approvals', 'audit', 'help']);
+  const supervisorViews = new Set(['ceo', 'platform', 'dashboard', 'orders', 'models', 'technicians', 'companies', 'agenda', 'roadmap', 'ai', 'configuration', 'command', 'commercial', 'clients', 'equipment', 'reports', 'notifications', 'approvals', 'audit', 'help']);
   const baseNavItems = [
     ['ceo', 'Dashboard CEO', Compass, null],
+    ['platform', 'Central FieldCheck', PanelsTopLeft, null],
     ['dashboard', rotuloModulo(configuracaoModular, MODULOS.DASHBOARD) || 'Visao Geral', LayoutDashboard, MODULOS.DASHBOARD],
     ['orders', rotuloModulo(configuracaoModular, MODULOS.ORDENS) || 'Ordens de Servico', ClipboardList, MODULOS.ORDENS],
     ['models', rotuloModulo(configuracaoModular, MODULOS.CHECKLISTS) || 'Modelos', ClipboardCheck, MODULOS.CHECKLISTS],
@@ -888,6 +892,10 @@ export default function App() {
           />
         ) : null}
 
+        {activeView === 'platform' ? (
+          <PlatformCenterModule profile={profile} companyName={activeCompanyName} configuration={configuracaoModular} />
+        ) : null}
+
         {activeView === 'command' ? (
           <CommandCenterModule
             orders={orders}
@@ -967,7 +975,7 @@ export default function App() {
         ) : null}
 
         {activeView === 'ai' ? (
-          <AiAssistantModule companies={companies} orders={orders} visits={visits} technicians={technicians} occurrences={occurrences} />
+          <AiAssistantModule profile={profile} companyId={selectedCompanyId || profile.empresa_id} companyName={activeCompanyName} orders={orders} visits={visits} technicians={technicians} occurrences={occurrences} />
         ) : null}
 
         {activeView === 'ideasLab' && isSuperAdmin ? (
